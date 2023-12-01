@@ -54,12 +54,33 @@ function deleteTask(index) {
 }
 
 function copyToClipboard(text) {
+  // const textarea = document.createElement('textarea');
+  // textarea.value = text;
+  // document.body.appendChild(textarea);
+  // textarea.select();
+  // document.execCommand('copy');
+  // document.body.removeChild(textarea);
+
+
   const textarea = document.createElement('textarea');
   textarea.value = text;
   document.body.appendChild(textarea);
   textarea.select();
   document.execCommand('copy');
   document.body.removeChild(textarea);
+
+  // Create a flash notification
+  const flashNotification = document.createElement('div');
+  flashNotification.className = 'flash-notification';
+  flashNotification.textContent = 'Copied!';
+  document.body.appendChild(flashNotification);
+
+  // Remove the flash notification after a short delay
+  setTimeout(() => {
+    document.body.removeChild(flashNotification);
+  }, 1000); // Adjust the duration (in milliseconds) as needed
+  
+  
 
   // alert('Copied to clipboard: ' + text);
 }
