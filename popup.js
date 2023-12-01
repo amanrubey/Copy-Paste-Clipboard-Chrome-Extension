@@ -91,7 +91,14 @@ function restoreTodoList() {
 
       const buttonsContainer = document.createElement('div');
       buttonsContainer.className = 'buttons';
-
+      todoList.forEach(function (task, index) {
+        const listItem = document.createElement('li');
+        listItem.textContent = task;
+  
+        listItem.addEventListener('click', function () {
+          copyToClipboard(task);
+        });
+      })
       const deleteButton = document.createElement('button');
       deleteButton.className = 'delete-button';
       deleteButton.innerHTML = '<i class="fas fa-trash"></i>'; // Trash icon
