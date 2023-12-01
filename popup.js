@@ -44,7 +44,7 @@ function copyToClipboard(text) {
   document.execCommand('copy');
   document.body.removeChild(textarea);
 
-  // alert('Copied to clipboard: ' + text);
+  alert('Copied to clipboard: ' + text);
 }
 
 function showTooltip(event, text) {
@@ -77,20 +77,24 @@ function restoreTodoList() {
       const text = document.createElement('span');
       text.textContent = task;
 
-      // text.addEventListener('mouseenter', function (event) {
-      //   showTooltip(event, task);
-      // });
+      text.addEventListener('mouseenter', function (event) {
+        showTooltip(event, task);
+      });
 
-      // text.addEventListener('mouseleave', function () {
-      //   hideTooltip();
-      // });
+      text.addEventListener('mouseleave', function () {
+        hideTooltip();
+      });
+
+      text.addEventListener('click', function () {
+        copyToClipboard(task);
+      });
 
       const buttonsContainer = document.createElement('div');
       buttonsContainer.className = 'buttons';
 
       const deleteButton = document.createElement('button');
       deleteButton.className = 'delete-button';
-      deleteButton.textContent = 'X';
+      deleteButton.innerHTML = '<i class="fas fa-trash"></i>'; // Trash icon
       deleteButton.addEventListener('click', function (event) {
         event.stopPropagation();
         deleteTask(index);
@@ -98,13 +102,9 @@ function restoreTodoList() {
 
       const copyButton = document.createElement('button');
       copyButton.className = 'copy-button';
-      copyButton.textContent = 'U';
+      copyButton.innerHTML = '<i class="fas fa-copy"></i>'; // Copy icon
       copyButton.addEventListener('click', function (event) {
         event.stopPropagation();
-        copyToClipboard(task);
-      });
-
-      textContainer.addEventListener('click', function () {
         copyToClipboard(task);
       });
 
@@ -118,3 +118,6 @@ function restoreTodoList() {
     });
   });
 }
+document.getElementById('openTodoListBtn').addEventListener('click', function () {
+  chrome.tabs.create({ url: 'todo.html' });
+});
