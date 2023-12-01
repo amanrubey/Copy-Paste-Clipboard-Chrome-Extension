@@ -19,6 +19,23 @@ function addTask() {
     });
   }
 }
+document.addEventListener('DOMContentLoaded', function () {
+  restoreTodoList();
+  
+  const taskInput = document.getElementById('taskInput');
+  const addTaskBtn = document.getElementById('addTaskBtn');
+
+  // Add task when Enter key is pressed
+  taskInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      addTask();
+    }
+  });
+
+  // Add task when the "Add Task" button is clicked
+  addTaskBtn.addEventListener('click', addTask);
+});
+
 
 function deleteTask(index) {
   // Ask for confirmation before deletion
