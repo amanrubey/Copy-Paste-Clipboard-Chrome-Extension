@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "name": "Simple Todo Extension",
+    "version": "1.0",
+    "description": "A simple todo list Chrome extension",
+    "icons": {
+      "48": "icon.png"
+    },
+    "browser_action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "48": "icon.png"
+      }
+    },
+    "permissions": ["storage"],
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ]
+  }
+  
