@@ -1,12 +1,12 @@
 {
-    "manifest_version": 2,
-    "name": "Simple Todo Extension",
+    "manifest_version": 3,
+    "name": "Copy Paste Clipboard",
     "version": "1.0",
-    "description": "A simple todo list Chrome extension",
+    "description": "Keep things handy which you want to quickly copy. Tap on the text to copy it quickly!",
     "icons": {
       "48": "icon.png"
     },
-    "browser_action": {
+    "action": {
       "default_popup": "popup.html",
       "default_icon": {
         "48": "icon.png"

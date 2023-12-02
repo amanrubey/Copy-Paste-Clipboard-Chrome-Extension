@@ -153,8 +153,8 @@ function restoreTodoList() {
         copyToClipboard(task);
       });
 
-      buttonsContainer.appendChild(deleteButton);
       buttonsContainer.appendChild(copyButton);
+      buttonsContainer.appendChild(deleteButton);
 
       textContainer.appendChild(text);
       listItem.appendChild(textContainer);
