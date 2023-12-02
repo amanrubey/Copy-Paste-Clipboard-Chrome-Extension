@@ -12,12 +12,6 @@
         "48": "icon.png"
       }
     },
-    "permissions": ["storage"],
-    "content_scripts": [
-      {
-        "matches": ["<all_urls>"],
-        "js": ["content.js"]
-      }
-    ]
+    "permissions": ["storage"]
   }
   
